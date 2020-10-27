@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Carddin Flips</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="flashcards-app">
+  <input v-model="inputQuest" placeholder="New Question Here"/>
+  <input v-model="inputAnswer" placeholder= "New Answer Here"/>
+  <input type="radio" value="history" v-model="inputRadio"/>
+  <input type="radio" value="math" v-model="inputRadio"/>
+  <input type="radio" value="science" v-model="inputRadio"/>
+  {{inputRadio}}
+  <div v-for="card in cards":key="cards.category">
+    {{cards.category}}
+    <div class="card">
+      <div style="{category}"></div>
+      </div>
+      <button v-on:click="flipCard"/>
+      <div class="side1">
+        <h1>{{cards.question}}</h1>
+        <div v-if="flipped=false">
+          <div v-bind:class="hide"></div>
+        </div>
+      </div>
+      <div class="side2">
+        <h1>{{cards.answer}}</h1>
+      </div>
+    </div>
+  </div> 
+  
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
